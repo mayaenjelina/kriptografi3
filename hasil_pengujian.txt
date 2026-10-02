@@ -1,0 +1,97 @@
+=== DEMO OPERASI MODULO (basis 26 huruf) ===
+23 mod 3 = 2
+25 mod 1 = 0
+2 mod -5 = -3
+29 mod 26 = 3
+-1 mod 26 = 25
+
+Contoh penerapan pada pergeseran huruf:
+Huruf 'X' (23) digeser 5 -> 23 + 5 = 28 -> tanpa modulo TIDAK valid (>25)
+Dengan modulo: (23 + 5) mod 26 = 2 -> huruf ke- 2 yaitu 'C'
+
+=== DEMO KONVERSI HURUF <-> ANGKA ===
+A -> 0
+K -> 10
+R -> 17
+I -> 8
+P -> 15
+T -> 19
+O -> 14
+Z -> 25
+
+0 -> A
+10 -> K
+17 -> R
+8 -> I
+15 -> P
+19 -> T
+14 -> O
+25 -> Z
+
+=== DEMO CAESAR CIPHER ===
+plaintext  = KRIPTO
+key        = 3
+ciphertext = NULSWR
+dekripsi   = KRIPTO
+
+=== DEMO XOR CIPHER ===
+plaintext (teks)  : KRIPTO
+plaintext (biner) : 01001011 01010010 01001001 01010000 01010100 01001111
+key (biner)       : 01001011 01010101 01001110 01000011 01001001
+
+ciphertext (hex)  : 000707131d04
+ciphertext (biner): 00000000 00000111 00000111 00010011 00011101 00000100
+
+hasil dekripsi    : KRIPTO
+
+============================================================
+PENGUJIAN CAESAR CIPHER (3 kasus)
+============================================================
+
+Kasus 1:
+  plaintext  : KRIPTO
+  key        : 3
+  ciphertext : NULSWR
+  dekripsi   : KRIPTO  -> BERHASIL
+
+Kasus 2:
+  plaintext  : HELLO WORLD
+  key        : 5
+  ciphertext : MJQQT BTWQI
+  dekripsi   : HELLO WORLD  -> BERHASIL
+
+Kasus 3:
+  plaintext  : Keamanan Data!
+  key        : 7
+  ciphertext : Rlhthuhu Khah!
+  dekripsi   : Keamanan Data!  -> BERHASIL
+
+============================================================
+PENGUJIAN XOR CIPHER (3 kasus)
+============================================================
+
+Kasus 1:
+  plaintext        : KRIPTO
+  key              : KUNCI
+  ciphertext (hex) : 000707131d04
+  dekripsi         : KRIPTO  -> BERHASIL
+
+Kasus 2:
+  plaintext        : HELLO WORLD
+  key              : KEY
+  ciphertext (hex) : 030015070a791c0a0b0701
+  dekripsi         : HELLO WORLD  -> BERHASIL
+
+Kasus 3:
+  plaintext        : Data Rahasia
+  key              : SANDI123
+  ciphertext (hex) : 17203a256963535b32322725
+  dekripsi         : Data Rahasia  -> BERHASIL
+
+=== KESIMPULAN SINGKAT ===
+Operasi modulo menjaga hasil pergeseran huruf tetap berada dalam rentang
+alfabet A-Z (0-25) dengan cara wrap-around, sehingga Caesar Cipher selalu
+menghasilkan huruf yang valid baik saat enkripsi maupun dekripsi. Sementara
+itu, XOR bersifat simetris (dapat dibalik dengan operasi yang sama), sehingga
+satu fungsi XOR saja cukup untuk melakukan enkripsi sekaligus dekripsi data
+biner, tanpa perlu logika terpisah seperti pada Caesar Cipher.
